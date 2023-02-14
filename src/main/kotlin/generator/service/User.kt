@@ -25,10 +25,12 @@ class UserServiceImpl: UserService{
         val resp = run("https://randomuser.me/api?seed=$seed")
         val rs = gson.fromJson(resp, RandomUserModel::class.java)
         var user: List<UserModel> = listOf()
-        for (result in rs.results) {
-            user = listOf(
-                UserModel(result.name.first, result.name.last, result.gender, result.email)
-            )
+        if (rs.results.isNotEmpty()) {
+            for (result in rs.results) {
+                user = listOf(
+                    UserModel(result.name.first, result.name.last, result.gender, result.email)
+                )
+            }
         }
 
         return user
