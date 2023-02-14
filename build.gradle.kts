@@ -24,10 +24,9 @@ dependencies {
 	implementation("com.squareup.okhttp3:okhttp")
 	implementation("com.google.code.gson:gson")
 	implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
+	implementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("io.mockk:mockk:1.9.3")
-	implementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
 }
 
 tasks.withType<KotlinCompile> {

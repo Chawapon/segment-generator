@@ -15,7 +15,7 @@ spec:
         name: segment-generator
     spec:
       containers:
-        - image: segment-generator:latest
+        - image: segment-generator:0.0.1
           imagePullPolicy: IfNotPresent
           name: segment-generator
           ports:
