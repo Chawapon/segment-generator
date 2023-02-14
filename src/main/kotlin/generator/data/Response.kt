@@ -1,10 +1,10 @@
 package generator.data
 
 data class UserModel(
-    var first: String,
-    var last: String,
-    var gender: String,
-    var email: String
+    var Firstname: String,
+    var Lastname: String,
+    var Gender: String,
+    var Email: String
 )
 
 data class RandomUserModel(
