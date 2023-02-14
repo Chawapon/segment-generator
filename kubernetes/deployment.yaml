@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: segment-generator
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: segment-generator
+  template:
+    metadata:
+      labels:
+        name: segment-generator
+    spec:
+      containers:
+        - image: segment-generator:latest
+          imagePullPolicy: IfNotPresent
+          name: segment-generator
+          ports:
+            - containerPort: 8080
+              name: tcp
