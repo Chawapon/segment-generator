@@ -6,11 +6,15 @@ import generator.data.UserModel
 import mu.KotlinLogging
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okio.IOException
 import org.springframework.stereotype.Service
-import java.io.IOException
 
 interface UserService {
     fun getUser(seed:String): List<UserModel>
+}
+
+object RandomUserAPI {
+    const val url = "https://randomuser.me/api"
 }
 
 @Service
@@ -22,7 +26,7 @@ class UserServiceImpl: UserService{
     override fun getUser(seed: String): List<UserModel> {
         logger.info { "fun: getUser service with $seed" }
 
-        val resp = run("https://randomuser.me/api?seed=$seed")
+        val resp = run(RandomUserAPI.url + "?seed=$seed")
         val rs = gson.fromJson(resp, RandomUserModel::class.java)
         var user: List<UserModel> = listOf()
         if (rs.results.isNotEmpty()) {

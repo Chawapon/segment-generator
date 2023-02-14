@@ -26,6 +26,7 @@ dependencies {
 	implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("io.mockk:mockk:1.9.3")
 }
 
 tasks.withType<KotlinCompile> {
